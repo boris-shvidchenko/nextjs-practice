@@ -8,6 +8,4 @@ Medium Build - This is a mockup/clone of a Medium front page (https://medium.com
 Sonny's youtube channel - https://www.youtube.com/c/SonnySangha
 Images used in my posts came from Pexels - https://www.pexels.com/ 
 
-Sonny's youtube channel - https://www.youtube.com/c/SonnySangha
-Images used in my posts came from Pexels - https://www.pexels.com/
 
