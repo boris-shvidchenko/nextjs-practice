@@ -1,5 +1,6 @@
 import StoryCard from './StoryCard';
 
+// temporary hardcoded story data for project
 const stories = [
     {
         name: 'Sonny Sangha',
