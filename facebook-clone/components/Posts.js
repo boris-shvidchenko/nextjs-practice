@@ -1,47 +1,57 @@
-import Image from 'next/dist/client/image'
-import { ChatAltIcon, ShareIcon, ThumbUpIcon } from '@heroicons/react/outline'
+import Post from './Post';
 
-export default function Post(props) {
+// temporary hardcoded post data for project
+const postData = [
+    {
+        key:1,
+        name:'Jack Brown',
+        message:'This is my first post!',
+        email:{},
+        timestamp:'05/16/2022 1:45',
+        image:'',
+        postImage:'https://links.papareact.com/l4v'
+    }, 
+    {
+        key:2,
+        name:'Jack Brown',
+        message:'This is my second post! ',
+        email:{},
+        timestamp:'05/17/2022 12:13',
+        image:'https://links.papareact.com/4zn',
+        postImage:'https://links.papareact.com/l4v'
+    },
+    {
+        key:3,
+        name:'Jack Brown',
+        message:'Another post - Hello!',
+        email:{},
+        timestamp:'05/17/2022 12:28',
+        image:'',
+        postImage:'https://links.papareact.com/l4v'
+    }
+
+]
+
+
+export default function Posts() {
+
+    const posts = postData.map(post => {
+        return (
+            <Post 
+                key={post.key}
+                name={post.name}
+                message={post.message}
+                email={post.email}
+                timestamp={post.timestamp}
+                image={post.image}
+                postImage={post.postImage}
+            />
+        )
+    }) 
+
     return(
-        <div className='flex flex-col mt-5 p-5 bg-white rounded-t-2xl shadow-sm'>
-            <div className='flex items-center space-x-2'>
-                <Image 
-                    className='rounded-full'
-                    src={props.postImage}
-                    width={40}
-                    height={40}
-                    layout='fixed'
-                />
-                <div>
-                    <p className='font-medium'>{props.name}</p>
-                    <p className='text-xs text-gray-400'>{props.timestamp}</p>
-                </div>
-            </div>
-            <div>
-                <p className='pt-4 pb-4'>{props.message}</p>
-                {props.image && 
-                    <Image                           
-                        src={props.image}
-                        width={500}
-                        height={250}
-                        objectFit='cover'
-                    />
-                }
-            </div>
-            <div className='flex justify-between items-center rounded-b-2xl bg-white shadow-md text-gray-400 border-t mt-4'>
-                <div className='inputIcon rounded-none rounded-bl-2xl'>
-                    <ThumbUpIcon className='h-4'/>
-                    <p className='text-xs sm:text-base'>Like</p>
-                </div>
-                <div className='inputIcon rounded-none'>
-                    <ChatAltIcon className='h-4'/>
-                    <p className='text-xs sm:text-base'>Comment</p>
-                </div>
-                <div className='inputIcon rounded-none rounded-br-2xl'>
-                    <ShareIcon className='h-4'/>
-                    <p className='text-xs sm:text-base'>Share</p>
-                </div>
-            </div>
+        <div>
+            {posts}
         </div>
     )
 }
