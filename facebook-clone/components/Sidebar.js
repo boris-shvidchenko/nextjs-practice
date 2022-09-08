@@ -23,4 +23,4 @@ export default function Sidebar() {
             <SidebarRow Icon={ChevronDownIcon} title='See More'/>
         </div>
     )
-}
+} 
