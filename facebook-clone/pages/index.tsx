@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
-import Login from '../components/Login'
+import Login from '../components/Login';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
-import Widgets from '../components/Widgets'
+import Widgets from '../components/Widgets';
 
 export default function Home() {
   
