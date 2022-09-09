@@ -7,5 +7,7 @@ This repository holds a number of different Next.js practice projects and builds
 
       Sonny's youtube channel - https://www.youtube.com/c/SonnySangha  
       Images used in my posts came from Pexels - https://www.pexels.com/ 
+    
+2. **Facebook Clone** - I built this clone, while following Sonny Sangha's tutorial (see link to his channel in #1 above), using a combination of React, Next.js, and Tailwind CSS 3.0. The tutorial included backend steps, such as the use of NextAuth.js for user authentication, although I decided to focus primarily on the UI aspect of the build. My main goal for this project was to get comfortable with Tailwind CSS and really dive into the responsive design elements that the framework provides.  
 
 
