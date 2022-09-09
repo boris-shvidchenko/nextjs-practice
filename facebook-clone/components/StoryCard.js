@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 export default function StoryCard({ name, src, profile }) {
     return(
