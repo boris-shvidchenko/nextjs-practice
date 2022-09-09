@@ -1,5 +1,5 @@
-import Image from 'next/dist/client/image'
-import { ChatAltIcon, ShareIcon, ThumbUpIcon } from '@heroicons/react/outline'
+import Image from 'next/dist/client/image';
+import { ChatAltIcon, ShareIcon, ThumbUpIcon } from '@heroicons/react/outline';
 
 export default function Post(props) {
     return(
