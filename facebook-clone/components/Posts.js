@@ -29,9 +29,7 @@ const postData = [
         image:'',
         postImage:'https://links.papareact.com/l4v'
     }
-
 ]
-
 
 export default function Posts() {
 
