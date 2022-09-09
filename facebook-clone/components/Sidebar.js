@@ -1,15 +1,15 @@
-import SidebarRow from './SidebarRow'
+import SidebarRow from './SidebarRow';
 import {
     ChevronDownIcon,
     ShoppingBagIcon,
     UserGroupIcon,
-} from '@heroicons/react/outline'
+} from '@heroicons/react/outline';
 import {
     CalendarIcon,
     ClockIcon,
     DesktopComputerIcon,
     UsersIcon,
-} from '@heroicons/react/solid'
+} from '@heroicons/react/solid';
 
 export default function Sidebar() {
     return(
