@@ -13,7 +13,7 @@ import { HomeIcon } from '@heroicons/react/solid'
 
 export default function Header() {
     return (
-        <div>
+        <div className='shadow-sm border-b bg-white sticky top=- z-50'>
             <div className='flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto '>
 
                 {/* Instagram Logo */}
