@@ -1,4 +1,5 @@
 import Image from 'next/dist/client/image'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 import { 
     SearchIcon, 
@@ -12,6 +13,9 @@ import { HomeIcon } from '@heroicons/react/solid'
 
 
 export default function Header() {
+
+    const { data: session } = useSession();
+
     return (
         <div className='shadow-sm border-b bg-white sticky top=- z-50'>
             <div className='flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto '>
@@ -38,15 +42,23 @@ export default function Header() {
                 {/* Right Side Buttons */}
                 <div className='flex items-center justify-end space-x-4'>
                     <HomeIcon  className='header-buttons'/>
-                    <div className='relative header-buttons'>
-                        <PaperAirplaneIcon className='header-buttons rotate-45' />
-                        <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white'>3</div>
-                    </div>
                     <MenuIcon className='h-6 md:hidden cursor-pointer' />
-                    <PlusCircleIcon className='header-buttons' />
-                    <UserGroupIcon className='header-buttons' />
-                    <HeartIcon className='header-buttons' />
-                    <img className='h-10 cursor-pointer' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrKG2nIby2WNJad1yBH9NWZUYT9V8z0z4Ej4jeEVfcwczQXLm55kcwl7MWkEOIhza2rJg&usqp=CAU' alt='profile picture'/>
+
+                    {session ? (
+                        <>
+                            <div className='relative header-buttons'>
+                                <PaperAirplaneIcon className='header-buttons rotate-45' />
+                                <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white'>3</div>
+                            </div>
+                            
+                            <PlusCircleIcon className='header-buttons' />
+                            <UserGroupIcon className='header-buttons' />
+                            <HeartIcon className='header-buttons' />
+                            <img onClick={signOut} className='h-10 w-10 cursor-pointer rounded-full' src={session?.user?.image} alt='profile picture'/>
+                        </>
+                    ) : (
+                        <button onClick={signIn}>Sign In</button>
+                    )}
                 </div>
 
             </div>
