@@ -1,10 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react'
 import { faker } from '@faker-js/faker'
+import { useSession } from 'next-auth/react';
 
 import Story from './Story'
 
 export default function Stories() {
+
+    const { data: session } = useSession(); 
 
     // state for suggestions array
     const[suggestions, setSuggestions] = React.useState([]);
@@ -31,6 +34,9 @@ export default function Stories() {
 
     return(
         <div className='flex items-center p-6 space-x-6 bg-white mt-8 border border-gray-200 rounded-sm overflow-x-scroll scrollbar-thin scrollbar-thumb-black'>
+            {session && (
+               <Story avatar={session.user.image} username={session.user.username} /> 
+            )}
             {suggestionElement}
         </div>
     )
