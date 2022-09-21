@@ -4,15 +4,22 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import * as EmailValidator from 'email-validator';
+import { faker } from '@faker-js/faker';
+import Chat from './Chat';
 
 export default function Sidebar() {
+
+    let users = [];
 
     function createChat() {
         const input = prompt('Please enter an email address for the user you wish to chat with');
         if (!input) return;
-        if (EmailValidator.validate(input)) {
-            // Add chat/s into Firebase database
+        
+        if (EmailValidator.validate(input) && !users.includes(input)) {
+            users = [...users, input];
         }
+
+        // add fake data and map through that. when btn is clicked append to data list for Chat components to work. 
     }
 
     return(
@@ -38,6 +45,12 @@ export default function Sidebar() {
             <SidebarButton onClick={createChat}>START A NEW CHAT</SidebarButton>
 
             {/* chat components */}
+            {users.map(user => {
+                return(
+                    <Chat key={faker.datatype.uuid()} users={user} avata={faker.image.avatar()} />
+                )
+            })}
+
             {/* div with icon and email */}
 
         </Container>
