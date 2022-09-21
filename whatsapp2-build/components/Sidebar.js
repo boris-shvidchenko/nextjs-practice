@@ -1,4 +1,4 @@
-import { Avatar, IconButton, Button } from '@mui/material';
+import { Avatar, IconButton, Button, useRadioGroup } from '@mui/material';
 import styled from 'styled-components';
 import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -6,27 +6,82 @@ import SearchIcon from '@mui/icons-material/Search';
 import * as EmailValidator from 'email-validator';
 import { faker } from '@faker-js/faker';
 import Chat from './Chat';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+
+// temporary fake user data
+let userData = [
+    {
+        key: faker.datatype.uuid(),
+        avatar: faker.image.avatar(),
+        email: faker.internet.email(),
+    },
+    {
+        key: faker.datatype.uuid(),
+        avatar: faker.image.avatar(),
+        email: faker.internet.email(),
+    },
+    {
+        key: faker.datatype.uuid(),
+        avatar: faker.image.avatar(),
+        email: faker.internet.email(),
+    },
+    {
+        key: faker.datatype.uuid(),
+        avatar: faker.image.avatar(),
+        email: faker.internet.email(),
+    }
+];
 
 export default function Sidebar() {
 
-    let users = [];
+    // function to go to home page using router
+    const router = useRouter();
+    function enterHome() {
+        router.push(`/`);
+    }
 
+    // state used to store array of Chat elements to render
+    const [userElement, setUserElement] = useState([])
+    // state used to store a counter to be used with dependency array in useEffect below. If userElement is used, infinite loop happens.
+    const [count, setCount] = useState(0);
+
+    // map through fake user data to create existing chats
+    useEffect(() => {
+        let userDataMap = userData.map(user => {
+            return(
+                <Chat key={user.key} id={user.key} email={user.email} avatar={user.avatar} />
+            )
+        });
+        setUserElement(userDataMap);
+    }, [count])
+    
+    // function creates a new chat if input email does not already exist
     function createChat() {
         const input = prompt('Please enter an email address for the user you wish to chat with');
+        let emailExists = false;
         if (!input) return;
-        
-        if (EmailValidator.validate(input) && !users.includes(input)) {
-            users = [...users, input];
+
+        //  checks if input email already exists
+        for (let user of userData) {
+            if (input === user.email) {
+                emailExists = true;
+                console.log('Email exists')
+            } 
         }
 
-        // add fake data and map through that. when btn is clicked append to data list for Chat components to work. 
+        // validates if email is correct format AND does not already exist 
+        if (EmailValidator.validate(input) && !emailExists) {
+            userData = [...userData, {key: faker.datatype.uuid(), avatar: faker.image.avatar(), email: input}];
+            setCount(prevCount => prevCount + 1)
+        }
     }
 
     return(
         <Container>
 
             <Header>
-                <UserAvatar />
+                <UserAvatar onClick={enterHome}/>
                 <IconsContainer>
                     <IconButton>
                         <ChatIcon />
@@ -44,12 +99,8 @@ export default function Sidebar() {
 
             <SidebarButton onClick={createChat}>START A NEW CHAT</SidebarButton>
 
-            {/* chat components */}
-            {users.map(user => {
-                return(
-                    <Chat key={faker.datatype.uuid()} users={user} avata={faker.image.avatar()} />
-                )
-            })}
+            {/* Chat Components */}
+            {userElement}
 
             {/* div with icon and email */}
 
@@ -65,11 +116,11 @@ const Header = styled.div`
     display: flex;
     position: sticky;
     top: 0;
-    background-colir: white;
+    background-color: white;
     z-index: 1;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 11px;
     height: 80px;
     border-bottom: 1px solid whitesmoke
 `;
@@ -100,6 +151,7 @@ const SearchInput = styled.input`
 const SidebarButton = styled(Button)`
     width: 100%;
     color: black;
+    
     &&& {
         border-top: 1px solid whitesmoke;
         border-bottom: 1px solid whitesmoke;
