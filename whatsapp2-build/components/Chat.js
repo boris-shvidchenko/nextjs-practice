@@ -3,17 +3,14 @@ import { Avatar } from '@mui/material';
 import { useRouter } from 'next/router';
 
 export default function Chat({ id, email, avatar }) {
-
     const router = useRouter();
-
     function enterChat() {
         router.push(`/chat/${id}`);
     }
-
     return(
         <Container onClick={enterChat}>
             <UserAvatar src={avatar} />
-            <p>{email}</p>
+            <p >{email}</p>
         </Container>
     )
 }
