@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import Sidebar from '../components/Sidebar';
 
 export default function Home() {
@@ -9,9 +8,7 @@ export default function Home() {
         <title>Whatsapp 2.0</title>
         <link rel="icon" href="" />
       </Head>
-
       <Sidebar />
-
     </div>
   )
 }
