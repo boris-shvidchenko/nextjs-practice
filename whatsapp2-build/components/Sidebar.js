@@ -34,18 +34,15 @@ let userData = [
 ];
 
 export default function Sidebar() {
-
     // function to go to home page using router
     const router = useRouter();
     function enterHome() {
         router.push(`/`);
     }
-
     // state used to store array of Chat elements to render
     const [userElement, setUserElement] = useState([])
     // state used to store a counter to be used with dependency array in useEffect below. If userElement is used, infinite loop happens.
     const [count, setCount] = useState(0);
-
     // map through fake user data to create existing chats
     useEffect(() => {
         let userDataMap = userData.map(user => {
@@ -55,7 +52,6 @@ export default function Sidebar() {
         });
         setUserElement(userDataMap);
     }, [count])
-    
     // function creates a new chat if input email does not already exist
     function createChat() {
         const input = prompt('Please enter an email address for the user you wish to chat with');
@@ -79,7 +75,6 @@ export default function Sidebar() {
 
     return(
         <Container>
-
             <Header>
                 <UserAvatar onClick={enterHome}/>
                 <IconsContainer>
@@ -91,26 +86,28 @@ export default function Sidebar() {
                     </IconButton>
                 </IconsContainer>
             </Header>
-
             <Search>
                 <SearchIcon />
                 <SearchInput placeholder='Search in chats' />
             </Search>
-
             <SidebarButton onClick={createChat}>START A NEW CHAT</SidebarButton>
-
-            {/* Chat Components */}
             {userElement}
-
-            {/* div with icon and email */}
-
         </Container>
     )
 }
 
-// Styled Components 
+const Container = styled.div`
+    flex: 0.45;
+    border-right: 1px solid whitesmoke;
+    height: 100vh;
+    min-width: 300px;
+    max-width: 30px;
+    overflow-y: scroll;
 
-const Container = styled.div``;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+`;
 
 const Header = styled.div`
     display: flex;
@@ -146,6 +143,7 @@ const SearchInput = styled.input`
     outline-width: 0;
     border: none;
     flex: 1;
+    margin-left: 15px;
 `;
 
 const SidebarButton = styled(Button)`
