@@ -15,3 +15,7 @@ This repository holds a number of different Next.js practice projects and builds
       Link to an example: [instagram-clone-iota-puce.vercel.app](https://instagram-clone-iota-puce.vercel.app/) (Note: Sign in functionality has been disabled for the time being.)
 
 4. **WhatsApp Build** - An attempt to build a WhatsApp clone. I had some issues with using Firebase with this build and as such this project is currently ongoing (still need to connect to the database for it to work). That being said the project uses Styled Components and gave me some experience with a new way of styling. I also got some practice with using the Material UI library for additional component functionality, React Firebase hooks, email validation methods, and Next.js built in routing.  
+
+4. **Hulu Clone** - A clone of Hulu with a focus on clean and responsive design. This project uses Tailwind CSS 3.0, Next.js, and React. I also used icons from Hero Icons, used the TMDB API to obtain movie data (https://www.themoviedb.org/), and explored concepts of server side rendering. 
+
+      Link to an example: https://hulu-clone-gules-one.vercel.app/
