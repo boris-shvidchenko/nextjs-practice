@@ -8,7 +8,7 @@ import {
     UserIcon,
  } from '@heroicons/react/24/outline';
 
-import HeaderItem from './HeaderItem'
+import HeaderItem from './HeaderItem';
 
 export default function Header() {
     return (
