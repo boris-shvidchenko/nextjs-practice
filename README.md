@@ -20,6 +20,6 @@ This repository holds a number of different Next.js practice projects and builds
 
       Link to an example: https://hulu-clone-gules-one.vercel.app/
       
-5. **Google Clone** - A functional clone of Google. This project was built using Next.js, React, Tailwind CSS 3.0 (with the Just in Time compiler), SSR, Pagination, and the Google Search API. The build is also fully responsive. This clone was quite enjoyable to work on since it forced me to use everything that I've learned in Next.js, such as using the framework's built in components (Image, Link, etc.) and working with React hooks (useRouter, useRef, etc.).   
+5. **Google Clone** - A functional clone of Google. This project was built using Next.js, React, Tailwind CSS 3.0 (with the Just in Time compiler), SSR, Pagination, and the Google Search API. The build is also fully responsive. This clone was quite enjoyable to work on since it forced me to use everything that I've learned in Next.js, such as using the framework's built in components (Image, Link, etc.) and working with React hooks (useRouter, useRef, etc.). Note that some elements of this project were hardcoded to provide a desired look (such as a profile image obtained online), however they were kept to a minimum.   
 
       Link to an example: https://google-clone-rho-cyan.vercel.app/
