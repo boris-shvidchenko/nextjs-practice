@@ -19,3 +19,7 @@ This repository holds a number of different Next.js practice projects and builds
 4. **Hulu Clone** - A clone of Hulu with a focus on clean and responsive design. This project uses Tailwind CSS 3.0, Next.js, and React. I also used icons from Hero Icons, used the TMDB API to obtain movie data (https://www.themoviedb.org/), and explored concepts of server side rendering. 
 
       Link to an example: https://hulu-clone-gules-one.vercel.app/
+      
+5. **Google Clone** - A functional clone of Google. This project was built using Next.js, React, Tailwind CSS 3.0 (with the Just in Time compiler), SSR, Pagination, and the Google Search API. The build is also fully responsive. This clone was quite enjoyable to work on since it forced me to use everything that I've learned in Next.js, such as using the framework's built in components (Image, Link, etc.) and working with React hooks (useRouter, useRef, etc.).   
+
+      Link to an example: https://google-clone-rho-cyan.vercel.app/
