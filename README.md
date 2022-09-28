@@ -1,5 +1,5 @@
 # nextjs-practice  
-This repository holds a number of different Next.js practice projects and builds.
+This repository holds a number of different Next.js practice projects and builds. Disclaimer: all builds/clones were worked on and deployed for educational purposes only.
 
 **Projects/Work:**
 
